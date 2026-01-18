@@ -69,6 +69,13 @@ pub struct AugmentRequest {
     alias = "request_message"
   )]
   pub message: String,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "messageSource",
+    alias = "message_source"
+  )]
+  pub message_source: String,
   #[serde(default, deserialize_with = "de_null_as_default")]
   #[serde(alias = "agentMemories")]
   pub agent_memories: String,
@@ -90,6 +97,12 @@ pub struct AugmentRequest {
     alias = "selected_text"
   )]
   pub selected_code: String,
+  #[serde(
+    default,
+    alias = "disableSelectedCodeDetails",
+    alias = "disable_selected_code_details"
+  )]
+  pub disable_selected_code_details: bool,
   #[serde(default, deserialize_with = "de_null_as_default")]
   pub suffix: String,
   #[serde(default, deserialize_with = "de_null_as_default")]
@@ -98,6 +111,37 @@ pub struct AugmentRequest {
   pub lang: String,
   #[serde(default, deserialize_with = "de_null_as_default")]
   pub path: String,
+  #[serde(default)]
+  pub blobs: Option<AugmentBlobs>,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "externalSourceIds",
+    alias = "external_source_ids"
+  )]
+  pub external_source_ids: Vec<String>,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "userGuidedBlobs",
+    alias = "user_guided_blobs"
+  )]
+  pub user_guided_blobs: Vec<String>,
+  #[serde(
+    default,
+    alias = "disableAutoExternalSources",
+    alias = "disable_auto_external_sources"
+  )]
+  pub disable_auto_external_sources: bool,
+  #[serde(default, alias = "disableRetrieval", alias = "disable_retrieval")]
+  pub disable_retrieval: bool,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "canvasId",
+    alias = "canvas_id"
+  )]
+  pub canvas_id: String,
   #[serde(default, deserialize_with = "de_null_as_default")]
   #[serde(alias = "userGuidelines")]
   pub user_guidelines: String,
@@ -125,6 +169,32 @@ pub struct AugmentRequest {
   pub conversation_id: Option<String>,
   #[serde(default)]
   pub context: Option<AugmentContext>,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize, Default)]
+pub struct AugmentBlobs {
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "checkpointId",
+    alias = "checkpointID",
+    alias = "checkpoint_id"
+  )]
+  pub checkpoint_id: Option<String>,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "addedBlobs",
+    alias = "added_blobs"
+  )]
+  pub added_blobs: Vec<String>,
+  #[serde(
+    default,
+    deserialize_with = "de_null_as_default",
+    alias = "deletedBlobs",
+    alias = "deleted_blobs"
+  )]
+  pub deleted_blobs: Vec<String>,
 }
 
 #[derive(Debug, Clone, Deserialize)]

@@ -3,6 +3,7 @@ mod config;
 mod convert;
 mod history_summary;
 mod history_summary_auto;
+mod official_injection;
 mod openai;
 mod protocol;
 mod util;
@@ -35,6 +36,7 @@ use crate::{
   },
   history_summary::compact_chat_history,
   history_summary_auto::{maybe_summarize_and_compact, HistorySummaryCache},
+  official_injection::{maybe_inject_official_context, ContextCanvasCache},
   openai::OpenAIChatCompletionChunk,
   protocol::{error_response, probe_response, AugmentRequest, AugmentStreamChunk},
   util::{join_url, normalize_raw_token, now_ms},
@@ -89,6 +91,7 @@ struct AppState {
   cfg: Arc<RwLock<Config>>,
   http: reqwest::Client,
   models_cache: Arc<RwLock<ModelCache>>,
+  context_canvas_cache: Arc<RwLock<ContextCanvasCache>>,
   history_summary_cache: Arc<RwLock<HistorySummaryCache>>,
   history_summary_cache_path: PathBuf,
 }
@@ -147,6 +150,7 @@ async fn main() -> anyhow::Result<()> {
     cfg: Arc::new(RwLock::new(cfg)),
     http,
     models_cache: Arc::new(RwLock::new(ModelCache::default())),
+    context_canvas_cache: Arc::new(RwLock::new(ContextCanvasCache::default())),
     history_summary_cache: Arc::new(RwLock::new(history_summary_cache)),
     history_summary_cache_path,
   };
@@ -439,9 +443,18 @@ async fn chat_stream(
   }
   compact_chat_history(&mut augment.chat_history);
 
-  if augment.message.is_empty() && augment.chat_history.is_empty() {
+  let has_nodes = !augment.nodes.is_empty()
+    || !augment.structured_request_nodes.is_empty()
+    || !augment.request_nodes.is_empty();
+  if augment.message.trim().is_empty() && augment.chat_history.is_empty() && !has_nodes {
     return ndjson_response(probe_response());
   }
+
+  let hard_timeout = match provider {
+    ProviderRef::Anthropic(p) => Duration::from_secs(p.timeout_seconds),
+    ProviderRef::OpenAICompatible(p) => Duration::from_secs(p.timeout_seconds),
+  };
+  maybe_inject_official_context(&state, &cfg, &mut augment, hard_timeout).await;
 
   let tool_meta_by_name: std::collections::HashMap<String, (String, String)> = augment
     .tool_definitions
@@ -2746,6 +2759,34 @@ mod parse_tests {
     assert_eq!(req.nodes[0].id, 1);
     assert_eq!(req.nodes[0].node_type, 0);
     assert_eq!(req.nodes[0].text_node.as_ref().unwrap().content, "");
+  }
+
+  #[test]
+  fn parse_retrieval_and_canvas_fields_ok() {
+    let body = br#"{
+      "message":"hi",
+      "chat_history":[],
+      "disableRetrieval":true,
+      "disableAutoExternalSources":true,
+      "externalSourceIds":["s1","s2"],
+      "userGuidedBlobs":["b1"],
+      "canvasId":"c1",
+      "messageSource":"prompt",
+      "disableSelectedCodeDetails":true,
+      "blobs":{"checkpointId":"ck","addedBlobs":["a"],"deletedBlobs":["d"]}
+    }"#;
+    let req = parse_augment_request(body).unwrap();
+    assert_eq!(req.disable_retrieval, true);
+    assert_eq!(req.disable_auto_external_sources, true);
+    assert_eq!(req.external_source_ids, vec!["s1".to_string(), "s2".to_string()]);
+    assert_eq!(req.user_guided_blobs, vec!["b1".to_string()]);
+    assert_eq!(req.canvas_id, "c1".to_string());
+    assert_eq!(req.message_source, "prompt".to_string());
+    assert_eq!(req.disable_selected_code_details, true);
+    let blobs = req.blobs.expect("blobs");
+    assert_eq!(blobs.checkpoint_id.as_deref(), Some("ck"));
+    assert_eq!(blobs.added_blobs, vec!["a".to_string()]);
+    assert_eq!(blobs.deleted_blobs, vec!["d".to_string()]);
   }
 
   #[test]
